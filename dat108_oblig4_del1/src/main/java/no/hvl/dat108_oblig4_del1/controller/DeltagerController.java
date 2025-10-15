@@ -24,8 +24,14 @@ public class DeltagerController {
         this.deltagerRepo = deltagerRepo;
     }
 
+    @GetMapping("/")
+    public String home() {
+        return "redirect:/paamelding";
+    }
+
     @GetMapping("/paamelding")
-    public String showSignUpForm() {
+    public String showSignUpForm(Model model) {
+        model.addAttribute("deltager", new Deltager());
         return "paamelding";
     }
 
